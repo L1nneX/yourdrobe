@@ -1,0 +1,43 @@
+# Xcode user data
+xcuserdata/
+*.xcuserstate
+
+# Build products
+DerivedData/
+build/
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.idea/
+.vscode/
+
+# Environment and secrets
+.env
+.env.*
+Secrets.xcconfig
+
+# Logs
+*.log
