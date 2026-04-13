@@ -49,6 +49,3 @@ This project was scaffolded outside Xcode, so the code and project structure are
 - Keep secrets out of the repo
 - Commit the source files, resources, and `.xcodeproj`
 - Do not commit `DerivedData` or personal Xcode user settings
-
-virtual wardrobe! 
-
