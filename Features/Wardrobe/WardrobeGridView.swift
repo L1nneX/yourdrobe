@@ -38,7 +38,7 @@ struct WardrobeGridView: View {
         .navigationTitle("Wardrobe")
         .toolbar {
             NavigationLink("Add") {
-                AddItemView()
+                AddItemView(wardrobeViewModel: viewModel)
             }
         }
     }

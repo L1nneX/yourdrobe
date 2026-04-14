@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AddItemView: View {
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject var wardrobeViewModel: WardrobeViewModel
     @StateObject private var viewModel = AddItemViewModel()
 
     var body: some View {
@@ -16,7 +17,7 @@ struct AddItemView: View {
             }
 
             Button("Save Item") {
-                viewModel.save()
+                viewModel.save(using: wardrobeViewModel)
                 dismiss()
             }
         }
@@ -26,6 +27,6 @@ struct AddItemView: View {
 
 #Preview {
     NavigationStack {
-        AddItemView()
+        AddItemView(wardrobeViewModel: WardrobeViewModel())
     }
 }
