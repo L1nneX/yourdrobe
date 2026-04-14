@@ -22,10 +22,16 @@ final class AppRouter: ObservableObject {
 
     func showOnboarding() {
         flow = .onboarding
+        selectedTab = .home
     }
 
     func completeOnboarding() {
         flow = .main
+        selectedTab = .home
+    }
+
+    func signOut() {
+        flow = .onboarding
         selectedTab = .home
     }
 }

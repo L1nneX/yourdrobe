@@ -2,6 +2,7 @@ import SwiftUI
 
 struct StyleProfileView: View {
     @EnvironmentObject private var router: AppRouter
+    @EnvironmentObject private var authViewModel: AuthViewModel
 
     let selectedStyles: [String]
 
@@ -28,6 +29,7 @@ struct StyleProfileView: View {
             Spacer()
 
             Button("Start using yourdrobe") {
+                authViewModel.signInDemoUser()
                 router.completeOnboarding()
             }
             .buttonStyle(PrimaryButtonStyle())
@@ -41,5 +43,6 @@ struct StyleProfileView: View {
     NavigationStack {
         StyleProfileView(selectedStyles: ["Minimal", "Classic"])
             .environmentObject(AppRouter())
+            .environmentObject(AuthViewModel())
     }
 }
