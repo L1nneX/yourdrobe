@@ -21,6 +21,10 @@ struct OnboardingView: View {
                         Text("Pick your style direction")
                             .font(AppTypography.headline)
 
+                        Text("\(selectedStyles.count) style\(selectedStyles.count == 1 ? "" : "s") selected")
+                            .font(AppTypography.caption)
+                            .foregroundStyle(AppColors.textSecondary)
+
                         FlexibleTagList(items: styles, selection: $selectedStyles)
                     }
                 }
@@ -28,9 +32,11 @@ struct OnboardingView: View {
                 NavigationLink {
                     StyleProfileView(selectedStyles: Array(selectedStyles))
                 } label: {
-                    Text("Continue")
+                    Text(selectedStyles.isEmpty ? "Select a style to continue" : "Continue")
                 }
                 .buttonStyle(PrimaryButtonStyle())
+                .disabled(selectedStyles.isEmpty)
+                .opacity(selectedStyles.isEmpty ? 0.6 : 1)
             }
             .padding(24)
         }
