@@ -16,12 +16,12 @@ final class AuthViewModel: ObservableObject {
         currentUser != nil
     }
 
-    func signInDemoUser() {
+    func signInDemoUser(styleProfile: [String] = ["Minimal", "Streetwear", "Smart casual"]) {
         isLoading = true
         errorMessage = nil
 
         do {
-            currentUser = try authService.signInDemoUser()
+            currentUser = try authService.signInDemoUser(styleProfile: styleProfile)
         } catch {
             errorMessage = error.localizedDescription
         }

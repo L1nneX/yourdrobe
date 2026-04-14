@@ -29,7 +29,7 @@ struct StyleProfileView: View {
             Spacer()
 
             Button("Start using yourdrobe") {
-                authViewModel.signInDemoUser()
+authViewModel.signInDemoUser(styleProfile: selectedStyles.isEmpty ? ["Still exploring"] : selectedStyles)
                 router.completeOnboarding()
             }
             .buttonStyle(PrimaryButtonStyle())
