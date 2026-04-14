@@ -16,6 +16,11 @@ struct AddItemView: View {
                 }
             }
 
+            Section("Description") {
+                TextField("Describe the item", text: $viewModel.itemDescription, axis: .vertical)
+                    .lineLimit(3...6)
+            }
+
             Button("Save Item") {
                 viewModel.save(using: wardrobeViewModel)
                 dismiss()

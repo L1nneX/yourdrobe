@@ -14,9 +14,10 @@ final class WardrobeViewModel: ObservableObject {
         loadItems()
     }
 
-    func addItem(name: String, color: String, category: WardrobeCategory) {
+    func addItem(name: String, color: String, category: WardrobeCategory, itemDescription: String) {
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedColor = color.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedDescription = itemDescription.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard !trimmedName.isEmpty, !trimmedColor.isEmpty else { return }
 
@@ -25,7 +26,8 @@ final class WardrobeViewModel: ObservableObject {
             name: trimmedName,
             category: category,
             color: trimmedColor,
-            season: "All season"
+            season: "All season",
+            itemDescription: trimmedDescription.isEmpty ? "No description added yet." : trimmedDescription
         )
 
         items.append(newItem)

@@ -17,6 +17,17 @@ struct ItemDetailView: View {
                 .font(AppTypography.body)
                 .foregroundStyle(AppColors.textSecondary)
 
+            AppCard {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Description")
+                        .font(AppTypography.headline)
+
+                    Text(viewModel.item.itemDescription)
+                        .font(AppTypography.body)
+                        .foregroundStyle(AppColors.textSecondary)
+                }
+            }
+
             Spacer()
         }
         .padding(24)
