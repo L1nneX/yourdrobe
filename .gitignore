@@ -41,3 +41,4 @@ Secrets.xcconfig
 
 # Logs
 *.log
+*.xcconfig
