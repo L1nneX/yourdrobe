@@ -48,9 +48,9 @@ struct DrobeChatView: View {
                 .foregroundStyle(AppColors.textPrimary)
 
             ForEach(quickActions, id: \.self) { action in
-                Button {
-                    viewModel.draft = action
-                } label: {
+               Button {
+    viewModel.runQuickAction(action)
+} label: {
                     HStack {
                         Text(action)
                             .font(AppTypography.body)
