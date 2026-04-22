@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct DrobeChatView: View {
+    @EnvironmentObject private var router: AppRouter
     @StateObject private var viewModel = DrobeChatViewModel()
 
     private let quickActions = [
@@ -39,6 +40,12 @@ private let weatherOptions = [
         }
         .background(AppColors.background.ignoresSafeArea())
         .navigationTitle("Drobe")
+        .onAppear {
+            if let prompt = router.pendingDrobePrompt {
+                viewModel.runQuickAction(prompt)
+                router.pendingDrobePrompt = nil
+            }
+        }
     }
 
     private var headerSection: some View {

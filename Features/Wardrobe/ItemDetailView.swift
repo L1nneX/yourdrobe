@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ItemDetailView: View {
     @StateObject var viewModel: ItemDetailViewModel
+    @EnvironmentObject private var router: AppRouter
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -27,6 +28,11 @@ struct ItemDetailView: View {
                         .foregroundStyle(AppColors.textSecondary)
                 }
             }
+
+            Button("Ask Drobe about this item") {
+                router.openDrobe(with: "What matches my \(viewModel.item.name)?")
+            }
+            .buttonStyle(PrimaryButtonStyle())
 
             Spacer()
         }
@@ -64,5 +70,6 @@ struct ItemDetailView: View {
 #Preview {
     NavigationStack {
         ItemDetailView(viewModel: ItemDetailViewModel(item: WardrobeItem.sampleItems[0]))
+            .environmentObject(AppRouter())
     }
 }

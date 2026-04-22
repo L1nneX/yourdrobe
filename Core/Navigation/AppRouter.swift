@@ -19,6 +19,7 @@ enum AppTab: Hashable {
 final class AppRouter: ObservableObject {
     @Published var flow: AppFlow = .splash
     @Published var selectedTab: AppTab = .home
+    @Published var pendingDrobePrompt: String?
 
     func showOnboarding() {
         flow = .onboarding
@@ -33,5 +34,11 @@ final class AppRouter: ObservableObject {
     func signOut() {
         flow = .onboarding
         selectedTab = .home
+        pendingDrobePrompt = nil
+    }
+
+    func openDrobe(with prompt: String) {
+        pendingDrobePrompt = prompt
+        selectedTab = .drobe
     }
 }
