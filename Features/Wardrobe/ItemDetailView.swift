@@ -8,7 +8,7 @@ struct ItemDetailView: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(Color.gray.opacity(0.12))
                 .frame(height: 240)
-                .overlay(Image(systemName: viewModel.item.category.iconName).font(.system(size: 42)))
+                .overlay(itemImageOverlay)
 
             Text(viewModel.item.name)
                 .font(AppTypography.largeTitle)
@@ -33,6 +33,31 @@ struct ItemDetailView: View {
         .padding(24)
         .background(AppColors.background.ignoresSafeArea())
         .navigationTitle("Item")
+    }
+
+    @ViewBuilder
+    private var itemImageOverlay: some View {
+        if let imageName = viewModel.item.imageName, !imageName.isEmpty {
+            VStack(spacing: 8) {
+                Image(systemName: "photo.fill")
+                    .font(.system(size: 36))
+                    .foregroundStyle(AppColors.textSecondary)
+
+                Text(imageName)
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+            }
+        } else {
+            VStack(spacing: 8) {
+                Image(systemName: viewModel.item.category.iconName)
+                    .font(.system(size: 42))
+                    .foregroundStyle(AppColors.textSecondary)
+
+                Text("No photo added yet")
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+            }
+        }
     }
 }
 

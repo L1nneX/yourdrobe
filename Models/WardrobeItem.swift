@@ -30,6 +30,7 @@ struct WardrobeItem: Identifiable, Codable, Hashable {
     var color: String
     var season: String
     var itemDescription: String
+    var imageName: String?
 }
 
 extension WardrobeItem {
@@ -40,7 +41,8 @@ extension WardrobeItem {
             category: .tops,
             color: "White",
             season: "All season",
-            itemDescription: "A clean everyday shirt that works well for smart casual outfits."
+            itemDescription: "A clean everyday shirt that works well for smart casual outfits.",
+            imageName: nil
         ),
         WardrobeItem(
             id: UUID(),
@@ -48,7 +50,8 @@ extension WardrobeItem {
             category: .bottoms,
             color: "Stone",
             season: "Spring",
-            itemDescription: "Relaxed tailored trousers with a soft neutral tone."
+            itemDescription: "Relaxed tailored trousers with a soft neutral tone.",
+            imageName: nil
         ),
         WardrobeItem(
             id: UUID(),
@@ -56,7 +59,8 @@ extension WardrobeItem {
             category: .outerwear,
             color: "Tan",
             season: "Autumn",
-            itemDescription: "A textured outer layer that adds warmth and depth."
+            itemDescription: "A textured outer layer that adds warmth and depth.",
+            imageName: nil
         ),
         WardrobeItem(
             id: UUID(),
@@ -64,7 +68,8 @@ extension WardrobeItem {
             category: .footwear,
             color: "White",
             season: "All season",
-            itemDescription: "Minimal trainers that pair easily with most looks."
+            itemDescription: "Minimal trainers that pair easily with most looks.",
+            imageName: nil
         )
     ]
 }

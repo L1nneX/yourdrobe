@@ -6,13 +6,16 @@ final class AddItemViewModel: ObservableObject {
     @Published var color = ""
     @Published var category: WardrobeCategory = .tops
     @Published var itemDescription = ""
+    @Published var imageName: String?
 
     func save(using wardrobeViewModel: WardrobeViewModel) {
         wardrobeViewModel.addItem(
             name: name,
             color: color,
             category: category,
-            itemDescription: itemDescription
+            itemDescription: itemDescription,
+            imageName: imageName
         )
     }
 }
+

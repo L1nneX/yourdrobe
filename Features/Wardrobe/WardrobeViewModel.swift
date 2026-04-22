@@ -14,10 +14,17 @@ final class WardrobeViewModel: ObservableObject {
         loadItems()
     }
 
-    func addItem(name: String, color: String, category: WardrobeCategory, itemDescription: String) {
+    func addItem(
+        name: String,
+        color: String,
+        category: WardrobeCategory,
+        itemDescription: String,
+        imageName: String?
+    ) {
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedColor = color.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedDescription = itemDescription.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedImageName = imageName?.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard !trimmedName.isEmpty, !trimmedColor.isEmpty else { return }
 
@@ -27,7 +34,8 @@ final class WardrobeViewModel: ObservableObject {
             category: category,
             color: trimmedColor,
             season: "All season",
-            itemDescription: trimmedDescription.isEmpty ? "No description added yet." : trimmedDescription
+            itemDescription: trimmedDescription.isEmpty ? "No description added yet." : trimmedDescription,
+            imageName: (trimmedImageName?.isEmpty == false) ? trimmedImageName : nil
         )
 
         items.append(newItem)
